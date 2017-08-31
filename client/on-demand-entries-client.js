@@ -3,6 +3,19 @@
 import Router from '../lib/router'
 import fetch from 'unfetch'
 
+const {
+  __NEXT_DATA__: {
+    props,
+    err,
+    pathname,
+    query,
+    buildId,
+    chunks,
+    assetPrefix
+  },
+  location
+} = window
+
 export default () => {
   Router.ready(() => {
     Router.router.events.on('routeChangeComplete', ping)
@@ -10,7 +23,7 @@ export default () => {
 
   async function ping () {
     try {
-      const url = `/_next/on-demand-entries-ping?page=${Router.pathname}`
+      const url = `${assetPrefix}/_next/on-demand-entries-ping?page=${Router.pathname}`
       const res = await fetch(url, {
         credentials: 'same-origin'
       })
