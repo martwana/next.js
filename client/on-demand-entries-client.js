@@ -5,15 +5,8 @@ import fetch from 'unfetch'
 
 const {
   __NEXT_DATA__: {
-    props,
-    err,
-    pathname,
-    query,
-    buildId,
-    chunks,
     assetPrefix
-  },
-  location
+  }
 } = window
 
 export default () => {
